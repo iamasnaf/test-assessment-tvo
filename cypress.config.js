@@ -8,7 +8,7 @@ module.exports = defineConfig({
     charts: true,
     embeddedScreenshots: true,
     inlineAssests: true,
-    reportDir: 'reprots',
+    reportDir: 'reports',
     reportPageTitle: 'Test Assessment TVO Results',
   
   },
