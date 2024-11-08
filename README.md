@@ -16,5 +16,6 @@ Each It state is a test where verification of UI
 And Assertions of components will also be include in the It state
 1. Test will verify all UI verification of Home Page of TVO Learn
 2. Will verify try to select different grade and see if it open the correct grade content
+3. Will all the verify and valdition of the learn forward in the curriculum section of selected grade
 
 
