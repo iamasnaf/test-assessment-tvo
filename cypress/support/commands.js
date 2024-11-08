@@ -1,25 +1,28 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+// verify the txt inside the locator and the css color
+Cypress.Commands.add('verifyParagraphTxt', (txt, color) => {
+    cy.get('.shg-rich-text p')
+        .should('contain.text', txt)
+    expect(cy.get('.shg-rich-text p'))
+    .toHaveCSS('color', color)
+})
+// page header verification and the css color
+Cypress.Commands.add('verifyHeader', (h, txt, color) => {
+    cy.get(`.shogun-heading-component ${h}`)
+        .contains(txt)
+        expect(cy.get(`.shogun-heading-component ${h}`))
+        .toHaveCSS('color', color)
+})
+// Verify of Color
+Cypress.Commands.add('verifyElementColor', (locator, color) => {
+    expect(cy.get(locator)).toHaveCSS('color', color)
+})
+
+Cypress.Commands.add('navigateToGrade', (gradeLocator) => {
+    // Click on dropdown to select grade
+    cy.get('#SiteNavLabel-learning-resources-k-12')
+        .click({ force: true })
+    // Click on the grade 1 from the list
+    cy.get(gradeLocator, { exact: true })
+        .first()
+        .click()
+})
