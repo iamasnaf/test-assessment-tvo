@@ -65,10 +65,9 @@ describe('Test Assessment TVO - Answer', () => {
             .should('have.attr', 'class', 'tabd highlighted')
 
         // Click on Algrebra and verify the tab get the class highlighted
-        cy.get('#tab1')
-            .get('button', { name: "Algebra" })
-            .first()
+        cy.get('#tab1 > button')
             .click({force:true})
+            
         cy.get('#tab1')
             .should('have.attr', 'class', 'tabd highlighted')
 
