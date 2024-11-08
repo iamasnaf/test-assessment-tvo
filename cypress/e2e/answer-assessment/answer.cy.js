@@ -52,9 +52,32 @@ describe('Test Assessment TVO - Answer', () => {
 
         // Verification On Subject Pages
         cy.verifyHeader('h1', `${CONSTANT.grade1}`, 'rgb(255, 255, 255)')
+        cy.verifyHeader('h2', `${CONSTANT.mathTxt}`, 'rgb(255, 255, 255)')
+        cy.verifyHeader('h3', `${CONSTANT.cardHeaderStrands}`, 'rgb(0, 0, 0)')
 
+        // Jump to learning activity should navigate to learning activiy section
+        cy.get('a[href="#jumpto-lesson-packs"]').click();
+        cy.get('h2[class="head-fancy"]').should('be.visible')
 
+        // By default Number is selected and highlighted
 
+        cy.get('#tab0')
+            .get('button', { name: "Number" })
+            .should('have.attr', 'class', 'highlighted')
+
+        // Click on Algrebra and verify the tab get the class highlighted
+        cy.get('#tab1')
+            .get('button', { name: "Algebra" })
+            .click()
+        cy.get('#tab1')
+            .get('button', { name: "Algebra" })
+            .should('have.attr', 'class', 'highlighted')
+
+        // Number should not have class highlighted now
+
+        cy.get('#tab0')
+            .get('button', { name: "Number" })
+            .should('not.have.attr', 'class', 'highlighted')
 
     })
 })
