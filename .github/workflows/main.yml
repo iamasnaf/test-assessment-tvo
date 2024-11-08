@@ -9,3 +9,16 @@ jobs:
    steps:
      - name: Checkout GitCode
        uses: actions/checkout@v2
+
+     - name: Cypress Test Run
+       uses: cypress-io/github-action@v4
+       with:
+          command: npx cypress run
+          browser: chrome
+    - name: Cypress Test Run
+       uses: cypress-io/github-action@v4
+       with:
+          command: npx cypress run
+          browser: firefox
+       
+
