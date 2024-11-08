@@ -39,8 +39,8 @@ describe('Test Assessment TVO - Answer', () => {
         cy.navigateToGrade('a[href="/pages/grade-1"]')
 
         cy.get('.shogun-heading-component h2')
-            .get(`${CONSTANT.forwardCurriculumSection}`)
-            .scrollIntoView('')
+            .first()
+            .scrollIntoView()
 
         // verify the header and the para text with CSS color verification
         cy.verifyHeader('h2', `${CONSTANT.forwardCurriculumSection}`, 'rgb(2, 14, 53)')
