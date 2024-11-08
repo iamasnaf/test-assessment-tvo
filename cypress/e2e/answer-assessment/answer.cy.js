@@ -49,6 +49,7 @@ describe('Test Assessment TVO - Answer', () => {
 
         // Open the subject card and verify the style of card
         cy.selectSubject('#s-f9924085-cdf6-409f-b476-67d7c5a74702-root')
+        
 
 
 

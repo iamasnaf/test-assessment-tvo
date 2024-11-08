@@ -34,7 +34,7 @@ Cypress.Commands.add('navigateToGrade', (gradeLocator) => {
 Cypress.Commands.add('selectSubject',(subjectID)=>{
 
     // Find the subject and will click on it
-    cy.get(subjectID).should('have.attr', 'style', 'box-sizing: border-box;')
+    cy.get(subjectID).should('have.attr', 'style', 'min-height: 340px; box-sizing: border-box')
     cy.get('.shg-row').get(`${subjectID} a`).click()
     
 })
